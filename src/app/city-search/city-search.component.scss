@@ -1,0 +1,40 @@
+h2,h3,h1,h4{
+  text-align: center;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.secs{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.secs h3{
+  margin-bottom: 12px;
+}
+
+.secs button{
+  margin-top: 12px;
+}
+
+.det{
+  margin: 12px;
+  align-self: center;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.desc{
+  font-size: 4em;
+  font-weight: 400;
+}
+
+img{
+  width: 100%;
+}

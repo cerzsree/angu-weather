@@ -1,0 +1,20 @@
+<!-- Toolbar -->
+<div class="bod mat-app-background" [class.dark-theme]="isDarked">
+  <mat-toolbar color="primary" class="nav">
+    <span> App </span>
+    <div>
+      <span>
+        <a mat-stroked-button routerLink="/dashboard">Dashboard</a>
+      </span>
+      <app-theme-switcher (isDark)="isDarked=$event"></app-theme-switcher>
+    </div>
+  </mat-toolbar>
+  
+<!-- Content -->
+
+   <router-outlet></router-outlet>
+    <app-messages></app-messages>
+</div>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * Created By Osama Namur* * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

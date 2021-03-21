@@ -1,0 +1,13 @@
+<div *ngIf="messageService.messages.length" class="mes mat-app-background">
+        <h2>Messages</h2>
+        <div class="bt">
+                <button 
+                mat-flat-button
+                color="accent"
+                (click)="messageService.clear()">
+                clear
+                </button>
+        </div>
+
+        <h4 *ngFor='let message of messageService.messages'> {{message}} </h4>
+</div>
