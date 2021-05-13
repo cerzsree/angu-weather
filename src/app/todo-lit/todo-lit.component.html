@@ -1,0 +1,42 @@
+<div class="lis">
+    <div class="listbod">
+        <div class="sec">
+        <h2> Todo List </h2>
+        <div class="inpt">
+            <label for="inpnd">Add new item</label>
+            <input
+            id="inpnd" 
+            #inputValue 
+            type="text" 
+            [(ngModel)]="newItem" 
+            (Keyup.enter)="addItem(inputValue.value)"
+            >
+        </div>
+    
+        <div *ngIf="newItem">
+            <h3>{{newItem}}</h3>
+            
+            <button
+            mat-flat-button
+            color="accent"
+            id="adItem" 
+            (click)="addItem(newItem)"
+            > Add Item </button>
+    
+        </div>
+        <div class="container">
+            <div class="list"
+            cdkDropList
+            #todoList="cdkDropList"
+            [cdkDropListData]="listItems"
+            (cdkDropListDropped)="onDrop($event)">
+                <mat-card @fade *ngFor="let itm of listItems" cdkDrag class="liscard">
+                    <mat-checkbox [disabled]="itm.done" (change)="setDone(itm)" [checked]="itm.done"></mat-checkbox>
+                    <mat-card-subtitle><p [class.done]="itm.done">{{itm.todo}}</mat-card-subtitle>
+                    <button mat-flat-button color="accent" (click)="deleteItem(itm)">
+                        X
+                    </button>
+                </mat-card>    
+            </div>
+    </div>
+</div>

@@ -1,17 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { SearchCityComponent } from './search-city/search-city.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CitiesComponent } from './cities/cities.component';
 import { FormsModule } from '@angular/forms';
-import { CityDetailComponent } from './city-detail/city-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CitySearchComponent } from './city-search/city-search.component';
 import { GetPositionDirective } from './get-position.directive';
-import { TodoLitComponent } from './todo-lit/todo-lit.component'; //<-- import ngModule
+import { TodoLitComponent } from './todo-lit/todo-lit.component';
 import { TodoListService } from './services/todo-list.service';
 import { StorageService } from './services/storage.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,20 +18,27 @@ import { MatListModule ,
     MatButtonToggleModule ,
     MatFormFieldModule ,
     MatInputModule ,
-    MatCheckboxModule } from '@angular/material';
+    MatCheckboxModule,
+    MatCardModule,
+    MatIconModule} from '@angular/material';
 import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { Empty } from './empty.component';
+import { DynamicTodoComponent } from './dynamic-todo/dynamic-todo.component';
+import { WeatherInfoCardComponent } from './weather-info-card/weather-info-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CitiesComponent,
-    CityDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    CitySearchComponent,
+    SearchCityComponent,
     GetPositionDirective,
     TodoLitComponent,
     ThemeSwitcherComponent,
+    Empty,
+    DynamicTodoComponent,
+    WeatherInfoCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +52,12 @@ import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.componen
     MatButtonToggleModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    DragDropModule,
+    MatIconModule
   ],
+  entryComponents: [ Empty ],
   providers: [TodoListService,StorageService],
   bootstrap: [AppComponent]
 })

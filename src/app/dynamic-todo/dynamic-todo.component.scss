@@ -1,0 +1,28 @@
+.todo{
+    display: flex;
+    flex-direction: column;
+    padding-top: 16px;
+    justify-content: flex-start;
+}
+
+.dynm{
+    height: fit-content;
+    min-height: 400px;
+    padding: 16px;
+    display: flex;
+}
+
+.emp{
+    align-self: center;
+    display: flex;
+    justify-content: baseline;
+    flex-direction: row;
+    height: 50px;
+    width: 100%;
+}
+
+.emp h3{
+    padding-left: 14px;
+    line-height: 50px;    
+}
+

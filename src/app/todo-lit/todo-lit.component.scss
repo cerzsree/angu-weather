@@ -1,0 +1,58 @@
+.lis{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.listbod{
+      align-self: center;
+      width: 300px;     
+}
+.sec{
+    margin-bottom: 12px;
+}  
+
+.inp{
+   width: 200px;
+}
+.inpt label{
+    padding: 6px;
+}
+.done{
+    text-decoration: line-through;
+}
+
+.inpt{
+    align-self: center;
+}
+
+h2{
+    text-align: center;
+}
+
+
+
+.frt{
+    z-index: +2;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+}
+
+.itm{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container{
+     padding: 6px;
+}
+
+.liscard{
+    margin: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}

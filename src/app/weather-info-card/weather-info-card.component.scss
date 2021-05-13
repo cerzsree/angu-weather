@@ -1,0 +1,21 @@
+weather-card{
+    align-self: center;
+}
+
+.mcard{
+    display: flex;
+    flex-direction: row;
+}
+
+.mcard p{
+    text-align: left;   
+}
+
+.cardinfo{
+    width: 100px;
+    padding: 6px;
+}
+
+.cardinfo p{
+    padding-top: 8px;
+}

@@ -1,5 +1,5 @@
 export interface Item{
     
-    todo :String;
+    todo :string;
     done? :boolean;
 }

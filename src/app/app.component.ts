@@ -9,15 +9,7 @@ import { Component , OnInit} from '@angular/core';
 export class AppComponent implements OnInit{
   title = 'angu-weather';
   isDarked = false;
+  currentLocation: any = {};
 
-  ngOnInit(){
-    
-    if(window.navigator.geolocation){
-      window.navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
-    }
-  }
-
-  setPosition(pos : String):void{
-    console.log('dfd');
-  }
+  ngOnInit(){}
 }

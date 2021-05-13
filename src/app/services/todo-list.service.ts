@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { Item } from '../Item';
+import { MessageService } from '../message.service';
 
 const todoListStorageKey :string ='Todo-List';
+const fakeTodoKey : string = 'Fake-Todo';
+
+const fakeTodo: Item[] = [
+  { todo : "One" , done : false },
+  { todo : "Two"   , done : false }
+]
 
 const defaultTodoList: Item[] = [
   { todo : "Sport", done:false },
@@ -15,29 +22,52 @@ const defaultTodoList: Item[] = [
 @Injectable({
   providedIn: 'root'
 })
+
 export class TodoListService {
   todoList: Item[];
+  fakeItems: Item[];
 
-  constructor(private storageService:StorageService) {
+  constructor(private storageService:StorageService, private messageServe:MessageService) {
     this.todoList = storageService.getData(todoListStorageKey) || defaultTodoList;
+    this.fakeItems = storageService.getData(fakeTodoKey) || fakeTodo;
   }
 
   getTodoList():Item[]{
     return this.todoList;
+    console.log(this.todoList);
+    this.messageServe.add("retriving the list");
+  }
+
+  deleteTheTodo():void{
+    this.todoList = [];
+    this.saveList();
+    this.messageServe.add("Clearing the Todo items");
   }
 
   addItem(item : Item):void{
-    if(this.todoList.indexOf(item) == -1){
-      item.done = false;
-      this.todoList.push(item);
-      this.saveList();
+    for(let i = 0 ; i < this.todoList.length ;i++){
+      if(this.todoList[i].todo == item.todo){
+        return;
+      }
     }
+    
+    this.todoList.push(item);
+    this.saveList();
+    
+    this.messageServe.add("Added new Todo Item")
   }
 
   updateItem(item : Item, changes){
     const i = this.todoList.indexOf(item);
     this.todoList[i] = {...item, ...changes};
     this.saveList();
+    this.messageServe.add("Updated Todo Item")
+  }
+
+  updateList(arr : Item[]){
+    this.todoList = arr;
+    this.saveList();
+    this.messageServe.add("Updated the Todo List")
   }
 
   saveList(){
@@ -48,5 +78,6 @@ export class TodoListService {
     const i = this.todoList.indexOf(item);
     this.todoList.splice(i, 1);
     this.saveList();
+    this.messageServe.add("Deleted Todo Item");
   }
 }

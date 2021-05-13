@@ -1,0 +1,10 @@
+<div class="dynm" [ngSwitch]="currentState">
+    <div *ngSwitchCase="'Empty'" class="emp">
+        <button mat-raised-button color="accent" (click)="changeStateTodo()" >Create</button>
+        <h3>Create new Todo</h3>
+    </div>
+    <div *ngSwitchCase="'Todo'" class="todo">
+        <app-todo-lit></app-todo-lit>
+        <button mat-fab color="accent" (click)="changeStateEmpty()"><mat-icon>delete</mat-icon></button>
+    </div>
+</div>

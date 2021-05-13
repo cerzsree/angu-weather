@@ -3,15 +3,21 @@
   justify-content: space-between;
 }
 
+#title{
+  font-size: 2em;
+  font-weight: 300;
+}
+
 .bod
 {
-  height: 100%;
+  height: auto;
 }
  a{
    margin-right: 16px;
  }
-h4{
+h3{
   margin: 24px;
+  padding-bottom: 24px;
   text-align: center;
 }
 .appms{

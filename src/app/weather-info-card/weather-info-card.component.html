@@ -1,0 +1,30 @@
+<mat-card class="weather-card">
+  <mat-card-content>
+    <div @errFade *ngIf="fetching">
+      <p>{{error}}</p>
+    </div>
+    <h2 @weatherFade *ngIf="content">{{cityLocation}}</h2>
+    <div *ngIf="content" class="mcard">
+      <div @weatherFade>
+        <img *ngIf="srce" src={{srce}} alt="weather gif" width="200px;">
+        <div>
+          <button mat-flat-button (click)="startSearch()">Find City</button>
+        </div>
+      </div>
+      <div @mnFade *ngIf="content" class="cardinfo">
+        <h3>{{content.weather[0].main}}</h3>
+        <p>Max Temp</p>
+        <p>{{content.main.temp_max}}</p>
+        <p>Min Temp</p>
+        <p>{{content.main.temp_min}}</p>
+      </div>
+    </div>
+    <div @searchFade *ngIf="searching">
+      <mat-form-field>
+      <mat-label>City Name</mat-label>
+      <input matInput [(ngModel)]="cityForSearch">
+      </mat-form-field>
+      <button mat-raised-button (click)="getwet(cityForSearch)">Get</button>
+    </div>
+  </mat-card-content>
+</mat-card>

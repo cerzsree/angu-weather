@@ -1,19 +1,17 @@
 <!-- Toolbar -->
 <div class="bod mat-app-background" [class.dark-theme]="isDarked">
   <mat-toolbar color="primary" class="nav">
-    <span> App </span>
+    <span id="title"> Ang-Weather </span>
     <div>
-      <span>
-        <a mat-stroked-button routerLink="/dashboard">Dashboard</a>
-      </span>
       <app-theme-switcher (isDark)="isDarked=$event"></app-theme-switcher>
     </div>
   </mat-toolbar>
   
 <!-- Content -->
 
-   <router-outlet></router-outlet>
-    <app-messages></app-messages>
+   <router-outlet style="height: auto;" mat-app-background></router-outlet>
+   <app-messages></app-messages>
+   <h3>Created By Osama Namur</h3>
 </div>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * Created By Osama Namur* * * * * * * * * -->
